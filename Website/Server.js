@@ -7,9 +7,12 @@ var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
 
+var page_request_count = 0;
+
 /* --- Router functions start --- */
 router.use(function (req,res,next) {
-    console.log("/" + req.method);
+    page_request_count++;
+    console.log("/" + req.method + ' | Request #: ' + page_request_count);
     next();
 });
 
@@ -30,6 +33,7 @@ router.get("/contact",function(req,res){
 app.use("/",router);
 //Set up 404 page
 app.use("*",function(req,res){
+    console.log('404 Sent!');
     res.sendFile(path + "404.html");
 });
 
