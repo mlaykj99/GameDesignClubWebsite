@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>UST Game Design Club</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/extra.css">
+</head>
+<body>
+    <div>
+        <div>
+            <nav class="navbar navbar-inverse" style="padding-left:130px;">
+                <ul class="nav navbar-nav">
+                    <li onclick="updateHeader( 'home', 'li1', 'h' );" id="li1"><a id="h">Home</a></li>
+                    <li onclick="updateHeader( 'about', 'li2', 'a' );" id="li2"><a id="a">About us</a></li>
+                    <li onclick="updateHeader( 'contact', 'li3', 'c' );" id="li3"><a id="c">Contact us</a></li>
+                    <li onclick="updateHeader( 'games', 'li4', 'g' );" id="li4"><a id="g">Games</a></li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+        <div class="jumbotron" id="container">
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
