@@ -7,12 +7,9 @@ var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
 
-var page_request_count = 0;
-
 /* --- Router functions start --- */
 router.use(function (req,res,next) {
-    page_request_count++;
-    console.log("/" + req.method + ' | Request #: ' + page_request_count);
+    console.log("/" + req.method);
     next();
 });
 
