@@ -33,7 +33,6 @@ router.get("/contact",function(req,res){
 app.use("/",router);
 //Set up 404 page
 app.use("*",function(req,res){
-    console.log('404 Sent!');
     res.sendFile(path + "404.html");
 });
 
