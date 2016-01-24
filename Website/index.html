@@ -1,33 +1,203 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>UST Game Design Club</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/extra.css">
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        function iconChange(el)         { el.attr('class', el.attr('class').substring(0, el.attr('class').length-8)); }
+        function iconBack(el)           { el.attr('class', el.attr('class') + '-outline'); }
+    </script>
 </head>
 <body>
-    <div>
-        <div>
-            <nav class="navbar navbar-inverse" style="padding-left:130px;">
-                <ul class="nav navbar-nav">
-                    <li onclick="updateHeader( 'home', 'li1', 'h' );" id="li1"><a id="h">Home</a></li>
-                    <li onclick="updateHeader( 'about', 'li2', 'a' );" id="li2"><a id="a">About us</a></li>
-                    <li onclick="updateHeader( 'contact', 'li3', 'c' );" id="li3"><a id="c">Contact us</a></li>
-                    <li onclick="updateHeader( 'games', 'li4', 'g' );" id="li4"><a id="g">Games</a></li>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" style="font-family: 'Belleza', 'Ubuntu', 'Open Sans', sans-serif;">UST Game Design Club</a>
+            </div>
+            <!-- Collect the nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html#about_cont" class="ubuntu">About</a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact" class="ubuntu">Contact</a>
+                    </li>
+                    <li id="gallery_link">
+                        <a href="games.html" class="ubuntu">Games</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <br>
-        <div class="container h1">UST Game Design Club</div>
-        <div class="container" id="container">
+        <!-- /.container -->
+    </nav>
+    <div id="navBuffer" class="black"></div>
 
+    <div class="container">
+        <div id="news" class="row center-block">
+            <div id="newsletter" class="panel text-padding" style="border: 1px black solid">
+                <div style="height: 80%;">
+                    <h2>NEWS LETTER</h2>
+                    <h4>January 7th, 2016</h4>
+                    <br>
+                    <div style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        <p>Eum at vidit mutat. Sed ad viderer luptatum, tollit nonumy molestiae pro ea. Vero eruditi cu vix, vix cu perpetua repudiandae.<br>
+                        Et atomorum similique nec, illum invidunt eos eu. Summo facilis ancillae has ei, unum perpetua sententiae eu sed, stet suscipiantur sit ei. Tale nullam eum ne, te pro vituperata inciderint.</p>
+                        <p>Eum at vidit mutat. Sed ad viderer luptatum, tollit nonumy molestiae pro ea. Vero eruditi cu vix, vix cu perpetua repudiandae.<br><br>
+                            Et atomorum similique nec, illum invidunt eos eu. Summo facilis ancillae has ei, unum perpetua sententiae eu sed, stet suscipiantur sit ei. Tale nullam eum ne, te pro vituperata inciderint.</p>
+                        <p>Eum at vidit mutat. Sed ad viderer luptatum, tollit nonumy molestiae pro ea. Vero eruditi cu vix, vix cu perpetua repudiandae.<br><br>
+                            Et atomorum similique nec, illum invidunt eos eu. Summo facilis ancillae has ei, unum perpetua sententiae eu sed, stet suscipiantur sit ei. Tale nullam eum ne, te pro vituperata inciderint.</p>
+                    </div>
+                </div>
+                <div class="pull-right" style="height: 10%;" onclick="expandNews()">More</div>
+            </div>
+        </div>
+        <div id="featured" class="row header-padding">
+            <div class="col-md-4">
+                <img src="imgs/testBanner2.jpg" class="fimg-responsive">
+            </div>
+            <div class="col-md-4">
+                <img src="imgs/testBanner2.jpg" class="fimg-responsive">
+            </div>
+            <div class="col-md-4">
+                <img src="imgs/testBanner2.jpg" class="fimg-responsive">
+            </div>
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <div class="content-break"></div>
+
+    <a id="about_cont"></a>
+    <div id="about" class="container">
+        <div id="mission" style="margin: 0 15em 5em 15em;">
+            <p>We are an interdisciplinary club interested in learning and teaching all of the aspects of making a game. The types of games include, but are not limited to, computer games, board games, card games, and role play games. Our focus will be on educating and discussing the elements that goes into creating high quality games as well as the resources necessary, and how to combine talents from various disciplines together to make a successful game.</p>
+        </div>
+        <div id="board" class="center-block row">
+            <div class="col-sm-2"></div>
+            <div id="pres" class="col-sm-2">
+                <img src="imgs/jsl.png" class="img-circle img-responsive">
+                <div class="desc">Josh Greenwell</div>
+                <div class="desc">President</div>
+            </div>
+            <div id="vpres" class="col-sm-2">
+                <img src="imgs/jsl.png" class="img-circle img-responsive">
+                <div class="desc">Name</div>
+                <div class="desc">Vice-President</div>
+            </div>
+            <div id="tres" class="col-sm-2">
+                <img src="imgs/jsl.png" class="img-circle img-responsive">
+                <div class="desc">Name</div>
+                <div class="desc">Treasurer</div>
+            </div>
+            <div id="secr" class="col-sm-2">
+                <img src="imgs/jsl.png" class="img-circle img-responsive">
+                <div class="desc">Name</div>
+                <div class="desc">Secretary</div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <div class="content-break"></div>
+
+    <div id="contact" class="container">
+        <form class="container small">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group has-feedback" id="nameGroup">
+                        <label class="control-label" for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name" aria-describedby="error1">
+                        <span id="ei1" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>
+                        <span id="error1" class="sr-only">(error)</span>
+                    </div>
+                    <div class="form-group has-feedback" id="emailGroup">
+                        <label class="control-label" for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" aria-describedby="error2">
+                        <span id="ei2" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>
+                        <span id="error2" class="sr-only">(error)</span>
+                    </div>
+                    <div class="form-group has-feedback" id="subjectGroup">
+                        <label class="control-label" for="subject">Subject</label>
+                        <input type="text" class="form-control" id="subject" placeholder="Subject" aria-describedby="error3">
+                        <span id="ei3" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>
+                        <span id="error3" class="sr-only">(error)</span>
+                    </div>
+                    <div class="form-group has-feedback" id="optionGroup">
+                        <label class="control-label" for="options">Message Type</label>
+                        <select class="form-control" id="options">
+                            <option value="1">General</option>
+                            <option value="2">Join Request</option>
+                            <option value="3">Service Hours</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-feedback" id="commentsGroup">
+                        <label class="control-label" for="comments">Questions & Comments</label>
+                        <textarea class="form-control" id="comments" placeholder="What's up?" aria-describedby="error4"></textarea>
+                        <span id="ei4" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>
+                        <span id="error4" class="sr-only">(error)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-5">
+                    <button type="button" class="btn btn-default" formtarget="_self" onclick="submitForm()">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="content-break"></div>
+
+    <!-- Footer -->
+    <div class="header-padding"></div>
+    <div class="container-fluid" style="border-top: 1px solid #e7e7e7;">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <nav class="navbar navbar-default center" role="navigation"  style="border: 0;">
+                        <div class="navbar-inner">
+                            <ul class="nav navbar-nav">
+                                <li><a href="http://personal.stthomas.edu/gree3245"><span style="font-size: .8em;">Designed by Josh Greenwell</span></a></li>
+                                <li><a href="https://www.linkedin.com/in/josh-greenwell-562a2441" class="ion-social-linkedin-outline" onmouseover="iconChange($(this))" onmouseout="iconBack($(this))"></a></li>
+                                <li><a href="https://github.com/mlaykj99" class="ion-social-github-outline" onmouseover="iconChange($(this))" onmouseout="iconBack($(this))"></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/velocity.js"></script>
     <script src="./js/main.js"></script>
-    <script src="./js/webservice.js"></script>
 </body>
 </html>

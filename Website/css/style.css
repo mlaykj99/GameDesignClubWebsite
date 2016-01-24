@@ -1,0 +1,364 @@
+
+/* --------------------------------------------------- FINAL ------------------------------------------------------ */
+@import url(//cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Belleza);
+
+body { background: white; }
+
+#newsletter
+{
+    height: 30vh;
+    width: 80%;
+    margin: auto;
+}
+
+#mission
+{
+    text-align: center;
+}
+
+.arrow
+{
+    top: 85%;
+    margin-top: 60px;
+    font-size: 2em;
+}
+
+.text-padding
+{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.arrow-alpha
+{
+    opacity: .7;
+}
+
+.arrow-alpha:hover
+{
+    opacity: 1;
+}
+/* ----------------------------------------------- REFACTORING --------------------------------------------------- */
+.black
+{
+    height: 8vh;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 3em;
+}
+
+.fimg-responsive {
+    height:100%;
+    width:100%;
+}
+
+.fimg-container
+{
+    width: 60em;
+    height: 20em;
+}
+
+.w-60-em
+{
+    width: 60em;
+}
+
+.content-break
+{
+    height: 10em;
+}
+
+.s-header
+{
+    border-top: solid white 3px;
+    border-bottom: solid white 3px;
+
+    height: 2em;
+
+    font-size: 2em;
+    text-align: center;
+    color: #FFF;
+
+    margin-bottom: 3em;
+}
+
+.t_white
+{
+    color: white;
+}
+
+.desc
+{
+    text-align: center;
+}
+
+.small
+{
+    width: 75%;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------- */
+
+/* Josh Greenwell 11/21/2015 */
+
+img
+{
+    max-height: 100%;
+}
+
+p
+{
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+}
+
+th
+{
+    text-align: center;
+}
+
+/* --- Navbar --- */
+.navbar-default { background-color: #ffffff; }
+
+.navbar-brand { font-size: 2.5em; color: #2d312e;}
+.navbar-nav li a { font-size: 1.25em; color: #2d312e;}
+
+.ubuntu
+{
+    font-family: 'Ubuntu', 'Open Sans', sans-serif;
+}
+
+/* --- Home --- */
+.home-img
+{
+    height: 100vh;
+    position: relative;
+
+    background-image: url('../img/gallery/Garden_of_Eva_l.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ion
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.25em;
+    display: block;
+    width: 1.75em;
+    height: 1.75em;
+    line-height: 1.65;
+    border-radius: 50%;
+    border: 1px solid #CCD1D9;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.icon
+{
+    color: #434A54;
+    text-decoration: none;
+    display: block;
+    margin-right: 5px;
+    text-align: center;
+    width: 120px;
+    position: absolute;
+    left: 50%;
+    margin-left: -60px;
+    font-size: 1em;
+}
+
+.ion-arrow-down-c
+{
+    font-size: 2.5em;
+}
+
+.down
+{
+    top: 85%;
+    margin-top: 20px;
+}
+
+.ion
+{
+    background-color: #fff;
+    box-shadow: 2px 2px 0 0 rgba(0,0,0,0.1);
+}
+
+a:focus, a:hover { color: #2d312e; }
+
+/* --- About --- */
+.about-header
+{
+    font-family: "Ubuntu", 'Open Sans', arial, sans-serif;
+    margin-bottom: -.5em;
+    padding-left: 2em;
+}
+
+/* --- Book --- */
+
+/* --- Gallery --- */
+.gallery-img-height
+{
+    height: 40em;
+}
+
+.gallery-img-height-h
+{
+    height: 25em;
+}
+
+.gi{ opacity: 1; }
+.gi:hover {  opacity: .75; }
+
+.t-right { text-align: right; }
+
+.g-item { width: 60%; }
+.g-item-quantity { width: 10%; text-align: center; }
+.g-item-price { width: 25%; text-align: center; }
+.g-item-remove
+{
+    height: 2em;
+    padding-top: .2em !important;
+}
+
+#form { margin: auto; position: relative;}
+
+.invis
+{
+    position: relative;
+    z-index: 1;
+    /*display: inline-block;*/
+}
+
+.g-icon
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 2.5em;
+    opacity: 0;
+    font-size: 2em;
+}
+
+.g-ion
+{
+    margin-right: 5px;
+}
+
+#total { padding-top: .5em; }
+
+/* --- Footer --- */
+.footer .navbar
+{
+    min-height: 2em;
+    height: 2em;
+    max-height: 2em;
+    margin: 0;
+}
+
+.footer li a
+{
+    line-height: 1.25em;
+    padding-top: .5em;
+    height: 2em;
+}
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+.navbar.center .navbar-inner .nav {
+    float: none;
+    display:inline-block;
+}
+
+/* --- Util --- */
+.header-padding
+{
+    padding-top: 7em;
+}
+
+.contain-img
+{
+    max-width: 100%;
+}
+
+.mh-100
+{
+    max-height: 100% !important;
+}
+
+.animation-element
+{
+    opacity: 0;
+    position: relative;
+}
+
+.vh-80
+{
+    height: 80vh;
+}
+
+#enlarge
+{
+    opacity: 0;
+
+    position: fixed;
+    z-index: -1;
+    height: 80vh;
+    width: 100%;
+
+    top: 7.5em;
+}
+
+#enlargeI
+{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    max-height: 80vh;
+    max-width: 98vw;
+}
+
+#exBtn
+{
+    position: absolute;
+}
+
+#added
+{
+    position: fixed;
+    width: 10em;
+    height: 3em;
+    border-radius: 25px;
+
+    background-color: #2ecc71;
+    color: #ffffff;
+    font-size: 1.25em;
+    text-align: center;
+    padding-top: .7em;
+
+    opacity: 0;
+    z-index: -1;
+
+    left:45%;
+    top: 7em;
+}
+
+.ellipsis
+{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* --- Mobile --- */
+@media all and (min-width: 1024px)
+{
+
+}
