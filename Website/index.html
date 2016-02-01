@@ -43,13 +43,13 @@
             <!-- Collect the nav links -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="index.html#about_cont" class="ubuntu">About</a>
+                    <li id="about_link">
+                        <a href="#about_cont" class="ubuntu">About</a>
+                    </li>
+                    <li id="contact_link">
+                        <a href="#contact_cont" class="ubuntu">Contact</a>
                     </li>
                     <li>
-                        <a href="index.html#contact" class="ubuntu">Contact</a>
-                    </li>
-                    <li id="gallery_link">
                         <a href="games.html" class="ubuntu">Games</a>
                     </li>
                 </ul>
@@ -60,7 +60,7 @@
     </nav>
     <div id="navBuffer" class="black"></div>
 
-    <div class="container">
+    <div id="i" class="container">
         <div id="news" class="row center-block">
             <div id="newsletter" class="panel text-padding" style="border: 1px black solid">
                 <div style="height: 80%;">
@@ -76,19 +76,19 @@
                             Et atomorum similique nec, illum invidunt eos eu. Summo facilis ancillae has ei, unum perpetua sententiae eu sed, stet suscipiantur sit ei. Tale nullam eum ne, te pro vituperata inciderint.</p>
                     </div>
                 </div>
-                <div class="pull-right" style="height: 10%;" onclick="expandNews()">More</div>
+                <div id="newsMoreLess" class="pull-right" style="height: 10%;" onclick="expandNews()">More</div>
             </div>
         </div>
         <div id="featured" class="row header-padding">
-            <div class="col-md-4">
+            <a class="col-md-4" href="game_template.html">
                 <img src="imgs/testBanner2.jpg" class="fimg-responsive">
-            </div>
-            <div class="col-md-4">
+            </a>
+            <a class="col-md-4" href="game_template.html">
                 <img src="imgs/testBanner2.jpg" class="fimg-responsive">
-            </div>
-            <div class="col-md-4">
+            </a>
+            <a class="col-md-4" href="game_template.html">
                 <img src="imgs/testBanner2.jpg" class="fimg-responsive">
-            </div>
+            </a>
         </div>
     </div>
 
@@ -96,39 +96,54 @@
 
     <a id="about_cont"></a>
     <div id="about" class="container">
+        <div class="text-center"><h2>About Us</h2></div>
         <div id="mission" style="margin: 0 15em 5em 15em;">
             <p>We are an interdisciplinary club interested in learning and teaching all of the aspects of making a game. The types of games include, but are not limited to, computer games, board games, card games, and role play games. Our focus will be on educating and discussing the elements that goes into creating high quality games as well as the resources necessary, and how to combine talents from various disciplines together to make a successful game.</p>
         </div>
         <div id="board" class="center-block row">
             <div class="col-sm-2"></div>
-            <div id="pres" class="col-sm-2">
+            <div id="pres" class="col-sm-2" onmouseover="personalContentShow(1)">
                 <img src="imgs/jsl.png" class="img-circle img-responsive">
                 <div class="desc">Josh Greenwell</div>
                 <div class="desc">President</div>
             </div>
-            <div id="vpres" class="col-sm-2">
+            <div id="vpres" class="col-sm-2" onmouseover="personalContentShow(2)">
                 <img src="imgs/jsl.png" class="img-circle img-responsive">
                 <div class="desc">Name</div>
                 <div class="desc">Vice-President</div>
             </div>
-            <div id="tres" class="col-sm-2">
+            <div id="tres" class="col-sm-2" onmouseover="personalContentShow(3)">
                 <img src="imgs/jsl.png" class="img-circle img-responsive">
                 <div class="desc">Name</div>
                 <div class="desc">Treasurer</div>
             </div>
-            <div id="secr" class="col-sm-2">
+            <div id="secr" class="col-sm-2" onmouseover="personalContentShow(4)">
                 <img src="imgs/jsl.png" class="img-circle img-responsive">
                 <div class="desc">Name</div>
                 <div class="desc">Secretary</div>
             </div>
             <div class="col-sm-2"></div>
         </div>
+        <div id="a_details" class="center-block header-padding">
+            <div class="row">
+                <div id="details_img" class="col-md-3 col-md-offset-1">
+                    <img src="./imgs/jsl.png" style="max-width: 100%">
+                </div>
+                <div id="details_text" class="col-md-7">
+                    <div id="p_cont"></div>
+                    Eum at vidit mutat. Sed ad viderer luptatum, tollit nonumy molestiae pro ea. Vero eruditi cu vix, vix cu perpetua repudiandae.<br>
+                    Et atomorum similique nec, illum invidunt eos eu. Summo facilis ancillae has ei, unum perpetua sententiae eu sed, stet suscipiantur sit ei. Tale nullam eum ne, te pro vituperata inciderint.
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="content-break"></div>
 
+    <a id="contact_cont"></a>
     <div id="contact" class="container">
-        <form class="container small">
+        <div class="text-center"><h2>Contact Us</h2></div>
+        <form id="form" class="container small">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group has-feedback" id="nameGroup">

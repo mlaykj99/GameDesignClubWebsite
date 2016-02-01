@@ -89,7 +89,7 @@ function animatePage()
     //animate elements
     $.each($('.animation-element.in-view'), function()
     {
-        var $element = $(this);
+        /*var $element = $(this);
         if(!$element.hasClass('done'))
         {
             if($element.attr('id') == 'about_cont')
@@ -103,7 +103,7 @@ function animatePage()
                 $element.velocity({right: '0px', opacity: 1}, {duration: 1000, easing: 'linear', complete: setMargin($('#book_img'), $('#bp'))});
             }
             $element.addClass('done');
-        }
+        }*/
     });
 
     $.each($('.animation-element.x'), function()
@@ -119,7 +119,7 @@ function animatePage()
     if(!window.location.href.endsWith('gallery.html'))
     {
         if($window.scrollTop() > ($about.offset().top + $about.outerHeight()/1.5) ||
-            $window.scrollTop() + $window.height() == $document.height()) { window.location.hash = '#book_'; active(); }
+            $window.scrollTop() + $window.height() == $document.height()) { window.location.hash = '#contact_'; active(); }
         else if(!$cover.hasClass('in-view')) { window.location.hash = '#about_'; active(); }
         else { window.location.hash = '#_'; active(); }
     }
@@ -406,13 +406,6 @@ function resetFormDisplay()
     $('#subjectGroup').removeClass('has-error');
     $('#commentsGroup').removeClass('has-error');
 
-    $('.text-danger').velocity({
-        opacity: 0
-    }, {
-        duration: 350,
-        easing: "linear"
-    });
-
     $('#ei1').css('opacity', 0);
     $('#ei2').css('opacity', 0);
     $('#ei3').css('opacity', 0);
@@ -445,8 +438,8 @@ function active()
     //Determine active
     var url = window.location.href;
     if(url.endsWith('#about') || url.endsWith('#about_')) { $('#about_link').addClass('active'); }
-    else if(url.endsWith('#book') || url.endsWith('#book_')) { $('#book_link').addClass('active'); }
-    else if(url.endsWith('gallery.html')) { $('#gallery_link').addClass('active'); }
+    else if(url.endsWith('#contact') || url.endsWith('#contact_')) { $('#contact_link').addClass('active'); }
+    else if(url.endsWith('games.html')) { $('#games_link').addClass('active'); }
 }
 
 $window.on('scroll resize', animatePage);
@@ -470,4 +463,33 @@ function switchImage()
 function expandNews()
 {
     $('#newsletter').css('height', '50em');
+    $('#newsMoreLess').html('Less');
+    $('#newsMoreLess').on('click', function() { despandNews() });
+}
+
+function despandNews()
+{
+    $('#newsletter').css('height', '20em');
+    $('#newsMoreLess').html('More');
+    $('#newsMoreLess').on('click', function() { expandNews() });
+}
+
+function personalContentShow(person)
+{
+    if ( person === 1 )
+    {
+        $('#p_cont').html('1 ');
+    }
+    else if ( person === 2 )
+    {
+        $('#p_cont').html('2 ');
+    }
+    else if ( person === 3 )
+    {
+        $('#p_cont').html('3 ');
+    }
+    else if ( person === 4 )
+    {
+        $('#p_cont').html('4 ');
+    }
 }
