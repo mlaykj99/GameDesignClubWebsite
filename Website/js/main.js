@@ -35,22 +35,7 @@ window.onload = function()
     }
     else
     {
-        imageArray = [
-            './img/gallery/Approaching_Storm.jpg',
-            './img/gallery/Birch_Trees_1.jpg',
-            './img/gallery/Birch_Trees_2.jpg',
-            './img/gallery/Birch_Trees_3.jpg',
-            './img/gallery/Birch_Trees_5.jpg',
-            './img/gallery/Bonsai.jpg',
-            './img/gallery/First_Light.jpg',
-            './img/gallery/Garden_of_Eva.jpg',
-            './img/gallery/Independence.jpg',
-            './img/gallery/Poppies.jpg',
-            './img/gallery/Serenity.jpg',
-            './img/gallery/Solo_Flight.jpg',
-            './img/gallery/Trophy.jpg',
-            './img/gallery/Whispering_Flowers.jpg'
-        ];
+        imageArray = [];
         preload(imageArray);
         initFrHeight = $('#fr1').css('height');
         initFrHeight = Number(initFrHeight.substring(0,initFrHeight.length-2));
@@ -491,5 +476,28 @@ function personalContentShow(person)
     else if ( person === 4 )
     {
         $('#p_cont').html('4 ');
+    }
+}
+
+function formTypeChange(type)
+{
+    var $textArea = $('#comments');
+    var $subject = $('#subject');
+
+    if(type == '1')
+    {
+        $textArea.prop('disabled', false);
+        $subject.prop('disabled', false);
+    }
+    else if(type == '2')
+    {
+        $textArea.prop('disabled', true);
+        $subject.prop('disabled', true);
+    }
+    else if(type == '3')
+    {
+        $subject.prop('disabled', true);
+
+        //TODO: Remove textarea and add service hours inputs
     }
 }
