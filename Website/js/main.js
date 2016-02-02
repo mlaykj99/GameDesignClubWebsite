@@ -447,15 +447,19 @@ function switchImage()
 //-------------------------------------------------------------------------------------------------- NEW
 function expandNews()
 {
+    console.log("Expand");
     $('#newsletter').css('height', '50em');
     $('#newsMoreLess').html('Less');
+    $('#newsMoreLess').removeAttribute('onclick');
     $('#newsMoreLess').on('click', function() { despandNews() });
 }
 
 function despandNews()
 {
+    console.log("Contract");
     $('#newsletter').css('height', '20em');
     $('#newsMoreLess').html('More');
+    $('#newsMoreLess').prop('click', null).off('click');
     $('#newsMoreLess').on('click', function() { expandNews() });
 }
 
@@ -481,23 +485,72 @@ function personalContentShow(person)
 
 function formTypeChange(type)
 {
-    var $textArea = $('#comments');
     var $subject = $('#subject');
+    var $formPart2 = $('#formPart2');
 
     if(type == '1')
     {
+        $formPart2.html(
+            '<div class="form-group has-feedback" id="commentsGroup">' +
+                '<label class="control-label" for="comments">Questions & Comments</label>' +
+                '<textarea class="form-control" id="comments" placeholder="What\'s up?" aria-describedby="error4"></textarea>' +
+                '<span id="ei4" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>' +
+                '<span id="error4" class="sr-only">(error)</span>' +
+            '</div>'
+        );
+
+        var $textArea = $('#comments');
+        $textArea.css('height', '250px');
         $textArea.prop('disabled', false);
         $subject.prop('disabled', false);
     }
     else if(type == '2')
     {
+        $formPart2.html(
+            '<div class="form-group has-feedback" id="commentsGroup">' +
+            '<label class="control-label" for="comments">Questions & Comments</label>' +
+            '<textarea class="form-control" id="comments" placeholder="What\'s up?" aria-describedby="error4"></textarea>' +
+            '<span id="ei4" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>' +
+            '<span id="error4" class="sr-only">(error)</span>' +
+            '</div>'
+        );
+
+        var $textArea = $('#comments');
+        $textArea.css('height', '250px');
         $textArea.prop('disabled', true);
         $subject.prop('disabled', true);
     }
     else if(type == '3')
     {
         $subject.prop('disabled', true);
+        $formPart2.html(
+            '<div class="form-group has-feedback" id="superGroup">' +
+                '<label class="control-label" for="supervisor">Supervisor</label>' +
+                '<input type="text" class="form-control" id="supervisor" placeholder="Supervisor" aria-describedby="error4">' +
+                //'<span id="ei3" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>'
+                //'<span id="error3" class="sr-only">(error)</span>'
+            '</div>' +
+            '<div class="form-group has-feedback" id="supPhoneGroup">' +
+                '<label class="control-label" for="sup_number">Supervisor\'s Number</label>' +
+                '<input type="text" class="form-control" id="sup_number" placeholder="Supervisor\'s Number" aria-describedby="error5">' +
+                //'<span id="ei3" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>'
+                //'<span id="error3" class="sr-only">(error)</span>'
+            '</div>' +
+            '<div class="form-group has-feedback" id="eventGroup">' +
+                '<label class="control-label" for="event">Event</label>' +
+                '<input type="text" class="form-control" id="event" placeholder="Event" aria-describedby="error6">' +
+                //'<span id="ei3" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>'
+                //'<span id="error3" class="sr-only">(error)</span>'
+            '</div>' +
+            '<div class="form-group has-feedback" id="hoursGroup">' +
+                '<label class="control-label" for="hours">Hours</label>' +
+                '<input type="text" class="form-control" id="hours" placeholder="Hours" aria-describedby="error7">' +
+                //'<span id="ei3" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="opacity: 0;"></span>'
+                //'<span id="error3" class="sr-only">(error)</span>'
+            '</div>'
+        );
 
-        //TODO: Remove textarea and add service hours inputs
+        //TODO: Validate input
+
     }
 }
