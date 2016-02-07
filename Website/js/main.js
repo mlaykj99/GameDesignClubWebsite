@@ -74,8 +74,16 @@ function animatePage()
     //animate elements
     $.each($('.animation-element.in-view'), function()
     {
-        /*var $element = $(this);
+        var $element = $(this);
         if(!$element.hasClass('done'))
+        {
+            if ($element.hassClass('e-img'))
+            {
+                $element.velocity({top: '-30%'}, {duration: 0, easing: 'linear'});
+                $element.velocity({top: '0px', opacity: 1}, {duration: 500, easing: 'linear'});
+            }
+        }
+        /*if(!$element.hasClass('done'))
         {
             if($element.attr('id') == 'about_cont')
             {
@@ -445,22 +453,53 @@ function switchImage()
 }
 
 //-------------------------------------------------------------------------------------------------- NEW
+function calcMoreLess()
+{
+    var $newsLetter = $('#newsletter');
+    var $content = $('#newsCont');
+    var $moreLess = $('#newsMoreLess');
+
+    if($newsLetter.height() <= 250)
+    {
+        $newsLetter.css('height', 500);
+    }
+    else
+    {
+        $newsLetter.css('height', 250);
+    }
+
+    var totalHeight = $newsLetter.outerHeight();
+    var mlHeight = $moreLess.outerHeight();
+
+    $content.css('height', Math.abs(totalHeight - (mlHeight * 1.75)));
+}
+
 function expandNews()
 {
     console.log("Expand");
-    $('#newsletter').css('height', '50em');
+    $('#newsletter').velocity({
+        height: calcMoreLess() }, {
+        duration: 500,
+        easing: "linear"
+    });
     $('#newsMoreLess').html('Less');
-    $('#newsMoreLess').removeAttribute('onclick');
-    $('#newsMoreLess').on('click', function() { despandNews() });
+    //setTimeout(function(){calcMoreLess()}, 500);
+    document.getElementById('newsMoreLess').onclick = null;
+    document.getElementById('newsMoreLess').onclick = despandNews;
 }
 
 function despandNews()
 {
     console.log("Contract");
-    $('#newsletter').css('height', '20em');
+    $('#newsletter').velocity({
+        height: calcMoreLess() }, {
+        duration: 500,
+        easing: "linear"
+    });
     $('#newsMoreLess').html('More');
-    $('#newsMoreLess').prop('click', null).off('click');
-    $('#newsMoreLess').on('click', function() { expandNews() });
+    //setTimeout(function(){calcMoreLess()}, 500);
+    document.getElementById('newsMoreLess').onclick = null;
+    document.getElementById('newsMoreLess').onclick = expandNews;
 }
 
 function personalContentShow(person)
@@ -522,6 +561,7 @@ function formTypeChange(type)
     }
     else if(type == '3')
     {
+        //TODO: Layer divs and use hide
         $subject.prop('disabled', true);
         $formPart2.html(
             '<div class="form-group has-feedback" id="superGroup">' +

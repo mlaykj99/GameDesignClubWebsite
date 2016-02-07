@@ -7,7 +7,7 @@ body { background: white; }
 
 #newsletter
 {
-    height: 30vh;
+    height: 250px;
     width: 80%;
     margin: auto;
 }
@@ -39,6 +39,12 @@ body { background: white; }
 {
     opacity: 1;
 }
+
+.e-img
+{
+    position: relative;
+}
+
 /* ----------------------------------------------- REFACTORING --------------------------------------------------- */
 .black
 {
