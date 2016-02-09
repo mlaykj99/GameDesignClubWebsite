@@ -15,8 +15,6 @@ window.onload = function()
 
     if(!window.location.href.endsWith('games.html'))
     {
-        //preload(imageArray);
-
         $("a[href*=#]").bind("click", function(e) {
             // prevent default action and bubbling
             e.preventDefault();
@@ -32,6 +30,8 @@ window.onload = function()
         });
 
         $('#comments').css('height', '250px');
+        $('#newsCont').css('height', 225 - $('#newsMoreLess').outerHeight() + 'px');
+        personalContentShow(1);
     }
     else
     {
@@ -118,101 +118,6 @@ function animatePage()
     }
 }
 
-function enlarge(img)
-{
-    var $element = $('#enlarge');
-    var $img = $('#enlargeI');
-    var $bg = $('#bFade');
-    var $btn = $('#exBtn');
-
-    $img.attr('src', img);
-    $img.load( function() {
-        $img.css('margin-top', (-((Number($img.css('height').substring(0, $img.css('height').length-2)))/2)) + 'px');
-        $img.css('margin-left', (-((Number($img.css('width').substring(0, $img.css('width').length-2)))/2)) + 'px');
-
-        console.log($element.height()/2);
-        console.log(Number($img.css('height').substring(0, $img.css('height').length-2)));
-
-        $btn.css('top', Number($img.css('height').substring(0, $img.css('height').length-2))/2 + ($element.height()/2) + 10 + 'px');
-        $btn.css('left', ($window.width()/2 - (Number($img.css('width').substring(0, $img.css('width').length-2))/2)) + 'px');
-        $btn.css('width', Number($img.css('width').substring(0, $img.css('width').length-2)) + 'px');
-
-        $element.css('z-index', 10);
-        $element.velocity({
-            opacity: 1
-        }, {duration: 500,
-            easing: 'linear'});
-
-        $bg.css('z-index', 2);
-        $bg.velocity({
-            opacity:.5
-        }, {duration: 750, easing: 'linear'});
-
-        $btn.on('click', descale);
-    });
-}
-
-function descale()
-{
-    var $element = $('#enlarge');
-    var $bg = $('#bFade');
-
-    $element.velocity('stop', true);
-    $bg.velocity('stop', true);
-
-    $element.velocity({
-        opacity: 0
-    }, {duration: 500,
-        easing: 'linear',
-        complete: function() {
-            $element.css('z-index', -1);
-        }
-    });
-
-    $bg.velocity({
-        opacity:0
-    }, {duration: 250,
-        easing: 'linear',
-        complete: function() {
-            $bg.css('z-index', -1);
-        }
-    });
-}
-
-function addItem(name, price)
-{
-    var rows;
-    var height;
-    var frHeight;
-    var newHeight;
-
-    addRow(name, price);
-    $('#price').html('$' + (Number(($('#price').html()).trim().substring(1)) + price) + '.00');
-
-    rows = $('#cartList tbody tr');
-    height = rows.css('height');
-    newHeight = (rows.length+1) * (Number(height.substring(0,height.length-2)));
-    frHeight = $('#fr1').css('height');
-    frHeight = Number(frHeight.substring(0,frHeight.length-2));
-    $('#fr1').css('height', (Math.max(frHeight, newHeight)) + 'px');
-
-    added();
-}
-
-function added()
-{
-    var $added = $('#added');
-
-    $added.velocity('stop', true);
-    $added.css('z-index', -1);
-    $added.css('opacity', 0);
-
-    $added.css('z-index', 100);
-    $added.velocity({opacity: 1}, {duration: 250, easing: "linear"});
-    $added.velocity({opacity: 0}, {delay: 550, duration: 450, easing: "linear"});
-    $added.velocity({'z-index': -1}, {delay:1000});
-}
-
 function animateForm()
 {
     var $form = $('form');
@@ -291,55 +196,6 @@ function animateFormReverse()
         duration: 150,
         easing: "easeInQuad"
     });
-}
-
-function addRow(name, price)
-{
-    var exists = false;
-    $('#cartList tbody tr').each(function(){
-        var cells = $(this).find('td');
-        if(cells[0].innerHTML === name)
-        {
-            cells[1].innerHTML = Number(cells[1].innerHTML) + 1;
-            cells[2].innerHTML = '$' + (Number(cells[2].innerHTML.substring(1)) + price) + '.00';
-            exists = true;
-            return !exists;
-        }
-    });
-
-    if(!exists)
-    {
-        $('#cartList > tbody:last').append('<tr>' +
-            '<td class="g-item">' + name + '</td>' +
-            '<td class="g-item-quantity">' + 1 + '</td>' +
-            '<td class="g-item-price">$' + price + '.00</td>' +
-            '<td class="btn btn-danger g-item-remove pull-right" onclick="removeRow($(this).parent())">X</td>' +
-            '</tr>'
-        );
-    }
-}
-
-function removeRow(row) {
-    var cur = Number($('#price').html().trim().substring(1));
-    var price = Number(row.find('td')[2].innerHTML.substring(1));
-
-    $('#price').html('$' + (cur - price) + '.00');
-    row.remove();
-
-    var rows;
-    var height;
-    var frHeight;
-    var newHeight;
-
-    rows = $('#cartList tbody tr');
-    if (rows.length > 0)
-    {
-        height = rows.css('height');
-        frHeight = $('#fr1').css('height');
-        frHeight = Number(frHeight.substring(0, frHeight.length - 2));
-        newHeight = frHeight - (Number(height.substring(0, height.length - 2)) + 3);
-        $('#fr1').css('height', (Math.max(initFrHeight, newHeight) + 'px'));
-    }
 }
 
 function validate()
@@ -445,51 +301,38 @@ function preload(arrayOfImages) {
 }
 
 //-------------------------------------------------------------------------------------------------- NEW
-function calcMoreLess()
-{
-    var $newsLetter = $('#newsletter');
-    var $content = $('#newsCont');
-    var $moreLess = $('#newsMoreLess');
-
-    if($newsLetter.height() <= 250)
-    {
-        $newsLetter.css('height', 500);
-    }
-    else
-    {
-        $newsLetter.css('height', 250);
-    }
-
-    var totalHeight = $newsLetter.outerHeight();
-    var mlHeight = $moreLess.outerHeight();
-
-    $content.css('height', Math.abs(totalHeight - (mlHeight * 1.75)));
-}
-
 function expandNews()
 {
     console.log("Expand");
     $('#newsletter').velocity({
-        height: calcMoreLess() }, {
+        height: '500px' }, {
+        duration: 500,
+        easing: "linear"
+    });
+    $('#newsCont').velocity({
+        height: 475 - $('#newsMoreLess').outerHeight() + 'px' }, {
         duration: 500,
         easing: "linear"
     });
     $('#newsMoreLess').html('Less');
-    //setTimeout(function(){calcMoreLess()}, 500);
     document.getElementById('newsMoreLess').onclick = null;
-    document.getElementById('newsMoreLess').onclick = despandNews;
+    document.getElementById('newsMoreLess').onclick = contractNews;
 }
 
-function despandNews()
+function contractNews()
 {
     console.log("Contract");
     $('#newsletter').velocity({
-        height: calcMoreLess() }, {
+        height: '250px' }, {
+        duration: 500,
+        easing: "linear"
+    });
+    $('#newsCont').velocity({
+        height: 225 - $('#newsMoreLess').outerHeight() + 'px' }, {
         duration: 500,
         easing: "linear"
     });
     $('#newsMoreLess').html('More');
-    //setTimeout(function(){calcMoreLess()}, 500);
     document.getElementById('newsMoreLess').onclick = null;
     document.getElementById('newsMoreLess').onclick = expandNews;
 }
@@ -498,8 +341,8 @@ function personalContentShow(person)
 {
     if ( person === 1 )
     {
-        $('#p_cont').html('Josh Greenwell: \nComputer Science Major and GIS Minor at the University of St. Thomas. \nPresident of the Game Design Club.');
-        $('#details_img').attr('src', './imgs/jsl.png');
+        $('#p_cont').html('Josh Greenwell: </br>Computer Science Major and GIS Minor at the University of St. Thomas. </br>President of the Game Design Club.');
+        $('#details_img').attr('src', './imgs/joshGreenwell.png');
     }
     else if ( person === 2 )
     {
