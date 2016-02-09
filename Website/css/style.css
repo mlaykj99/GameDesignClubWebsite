@@ -3,7 +3,7 @@
 @import url(//cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css);
 @import url(https://fonts.googleapis.com/css?family=Belleza);
 
-body { background: white; }
+body { background: white; font-family: 'Ubuntu', 'Open Sans', sans-serif;}
 
 #newsletter
 {

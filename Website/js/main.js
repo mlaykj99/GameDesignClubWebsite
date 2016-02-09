@@ -444,14 +444,6 @@ function preload(arrayOfImages) {
     switchImage();
 }
 
-function switchImage()
-{
-    if(!window.location.href.endsWith('gallery.html'))
-    {
-        $('.home-img').css('background-image', "url('./img/gallery/Garden_of_Eva.jpg')");
-    }
-}
-
 //-------------------------------------------------------------------------------------------------- NEW
 function calcMoreLess()
 {
@@ -506,19 +498,23 @@ function personalContentShow(person)
 {
     if ( person === 1 )
     {
-        $('#p_cont').html('1 ');
+        $('#p_cont').html('Josh Greenwell: \nComputer Science Major and GIS Minor at the University of St. Thomas. \nPresident of the Game Design Club.');
+        $('#details_img').attr('src', './imgs/jsl.png');
     }
     else if ( person === 2 )
     {
-        $('#p_cont').html('2 ');
+        $('#p_cont').html('2: null');
+        $('#details_img').attr('src', './imgs/commmingSoon2.png');
     }
     else if ( person === 3 )
     {
-        $('#p_cont').html('3 ');
+        $('#p_cont').html('3: null');
+        $('#details_img').attr('src', './imgs/commmingSoon2.png');
     }
     else if ( person === 4 )
     {
-        $('#p_cont').html('4 ');
+        $('#p_cont').html('4: null');
+        $('#details_img').attr('src', './imgs/commmingSoon2.png');
     }
 }
 

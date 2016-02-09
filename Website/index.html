@@ -49,8 +49,9 @@
                     <li id="contact_link">
                         <a href="#contact_cont" class="ubuntu">Contact</a>
                     </li>
-                    <li>
-                        <a href="games.html" class="ubuntu">Games</a>
+                    <li class="disabled">
+                        <a href="" class="ubuntu">Games</a>
+                       <!-- <a href="games.html" class="ubuntu">Games</a>-->
                     </li>
                 </ul>
             </div>
@@ -64,7 +65,7 @@
         <div id="news" class="row center-block">
             <div id="newsletter" class="panel text-padding" style="border: 1px black solid">
                 <div id="newsCont">
-                    <h2>NEWS LETTER</h2>
+                    <h2>News Letter</h2>
                     <h4>January 7th, 2016</h4>
                     <br>
                     <div style="white-space: nowrap; overflow: hidden;">
@@ -79,15 +80,17 @@
                 <div id="newsMoreLess" class="pull-right" style="height: 2em; border-top: 1px black solid;" onclick="expandNews()">More</div>
             </div>
         </div>
-        <div id="featured" class="row header-padding">
+        <div class="text-center header-padding"><h2>Featured Games</h2></div>
+        <div id="featured" class="row" style="position: relative;">
+            <img src="./imgs/commingSoon.png" style="min-width: 100%;position: absolute; z-index: 2;">
             <a class="col-md-4" href="game_template.html">
-                <img src="imgs/testBanner2.jpg" class="fimg-responsive">
+                <img src="imgs/testBanner2.jpg" class="fimg-responsive" style="opacity: .5;">
             </a>
             <a class="col-md-4" href="game_template.html">
-                <img src="imgs/testBanner2.jpg" class="fimg-responsive">
+                <img src="imgs/testBanner2.jpg" class="fimg-responsive" style="opacity: .5;">
             </a>
             <a class="col-md-4" href="game_template.html">
-                <img src="imgs/testBanner2.jpg" class="fimg-responsive">
+                <img src="imgs/testBanner2.jpg" class="fimg-responsive" style="opacity: .5;">
             </a>
         </div>
     </div>
@@ -108,31 +111,29 @@
                 <div class="desc">President</div>
             </div>
             <div id="vpres" class="col-sm-2 e-img" onmouseover="personalContentShow(2)">
-                <img src="imgs/jsl.png" class="img-circle img-responsive">
-                <div class="desc">Name</div>
+                <img src="imgs/commmingSoon2.png" class="img-circle img-responsive">
+                <div class="desc">null</div>
                 <div class="desc">Vice-President</div>
             </div>
             <div id="tres" class="col-sm-2 e-img" onmouseover="personalContentShow(3)">
-                <img src="imgs/jsl.png" class="img-circle img-responsive">
-                <div class="desc">Name</div>
+                <img src="imgs/commmingSoon2.png" class="img-circle img-responsive">
+                <div class="desc">null</div>
                 <div class="desc">Treasurer</div>
             </div>
             <div id="secr" class="col-sm-2 e-img" onmouseover="personalContentShow(4)">
-                <img src="imgs/jsl.png" class="img-circle img-responsive">
-                <div class="desc">Name</div>
+                <img src="imgs/commmingSoon2.png" class="img-circle img-responsive">
+                <div class="desc">null</div>
                 <div class="desc">Secretary</div>
             </div>
             <div class="col-sm-2"></div>
         </div>
         <div id="a_details" class="center-block header-padding">
             <div class="row">
-                <div id="details_img" class="col-md-3 col-md-offset-1">
-                    <img src="./imgs/jsl.png" style="max-width: 100%">
+                <div class="col-md-3 col-md-offset-1">
+                    <img id="details_img" src="./imgs/jsl.png" style="max-width: 100%">
                 </div>
                 <div id="details_text" class="col-md-7">
                     <div id="p_cont"></div>
-                    Eum at vidit mutat. Sed ad viderer luptatum, tollit nonumy molestiae pro ea. Vero eruditi cu vix, vix cu perpetua repudiandae.<br>
-                    Et atomorum similique nec, illum invidunt eos eu. Summo facilis ancillae has ei, unum perpetua sententiae eu sed, stet suscipiantur sit ei. Tale nullam eum ne, te pro vituperata inciderint.
                 </div>
             </div>
         </div>
